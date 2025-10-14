@@ -1,0 +1,19 @@
+= form_with(model: email_template, class: "form-container") do |form|
+  - if email_template.errors.any?
+    %div{style: "color: red"}
+      %h2= "#{pluralize(email_template.errors.count, "error")} prohibited this email_template from being saved:"
+
+      %ul
+        - email_template.errors.each do |error|
+          %li= error.full_message
+
+  %div
+    = form.label :subject, style: "display: block"
+    = form.text_field :subject
+
+  %div
+    = form.label :body, style: "display: block"
+    = form.text_area :body, rows: 5
+
+  %div
+    = form.submit

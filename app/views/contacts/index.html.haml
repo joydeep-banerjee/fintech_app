@@ -1,0 +1,49 @@
+%body
+  .container
+    %header
+      .title 
+      %div{style: "opacity:0.7"}  Contacts Dashboard |  #{link_to "Email Template", email_templates_path}
+      .title
+    .list
+      / Contact: Alice Johnson
+      - @contacts.each do |contact|
+        .card
+          .row
+            .meta
+              %div
+                .name
+                  = contact.name
+                  %span{style: "color:var(--muted);font-weight:500"}
+                    = "(#{contact.email})"
+                - if contact.organization
+                  .org
+                    — Org:
+                    %strong= "#{contact.organization.name}"
+            .controls
+              %label{for: "template-alice", style: "color:var(--muted);font-size:13px"} Select Template:
+              %select#template-alice
+                - @email_templates.each do |t|
+                  %option{value: "#{t.first}" }
+                    = t.last
+              %button.ghost Preview
+              %button#email_send 
+                %a{link: send_email_contact_path(@email_templates.first[0])} Send
+          - if contact.portfolios.any?
+            - contact.portfolios.each do |portfolio|
+              .funds
+                .fund
+                  .title= portfolio.title
+                  .balance
+                    — Balance:
+                    %strong= portfolio.balance
+                  .perf
+                    Perf:
+                    %strong= portfolio.performance     
+            .summary
+              Best:
+              %strong{style: "margin-right:10px;color:#34d399"}
+              = get_portfolio_summary(contact)[:best]
+              Worst:
+              %strong{style: "color:#fb7185"}
+              = get_portfolio_summary(contact)[:worst]
+      .divider
