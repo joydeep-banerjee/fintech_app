@@ -145,6 +145,10 @@ GEM
       thor (>= 0.14, < 2.0)
     json (2.13.2)
     language_server-protocol (3.17.0.5)
+    launchy (2.5.2)
+      addressable (~> 2.8)
+    letter_opener (1.6.0)
+      launchy (~> 2.2)
     lint_roller (1.1.0)
     logger (1.7.0)
     loofah (2.24.1)
@@ -331,6 +335,7 @@ DEPENDENCIES
   html2haml
   jbuilder
   jquery-rails
+  letter_opener (= 1.6.0)
   pg (~> 1.1)
   pry
   puma (>= 5.0)

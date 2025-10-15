@@ -19,3 +19,5 @@ This project currently works with:
 -  [ ] `rails db:seed` to store dummy data
 -  [ ] Run the application server: `rails s`
 -  [ ] Access application in http://localhost:3000
+-  [ ] To access Email method for testing from rails console, use below example.
+-  [ ] Example: ContactMailer.account_summary(Contact.last.id, EmailTemplate.last.id).deliver_now
