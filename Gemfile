@@ -38,7 +38,7 @@ group :development, :test do
 end
 
 group :development do
-  gem 'letter_opener', '1.6.0'
+  gem 'letter_opener', '1.10.0'
   # Use console on exceptions pages [https://github.com/rails/web-console]
   gem "web-console"
 end
